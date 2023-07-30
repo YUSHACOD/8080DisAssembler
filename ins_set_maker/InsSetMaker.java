@@ -41,6 +41,9 @@ public class InsSetMaker {
 					System.out.println("Invalid data format: " + line);
 				}
 			}
+
+			buffer.close();
+
 		} catch (FileNotFoundException fe) {
 			System.out.println("File not found bitch..." + fe);
 		} catch (Exception e) {
@@ -48,6 +51,7 @@ public class InsSetMaker {
 		}
 
 		System.out.println("Instruction List created.");
+		list.trimToSize();
 		return list;
 	}
 }

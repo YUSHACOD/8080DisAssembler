@@ -2,12 +2,15 @@ package ins_set_maker.instruction;
 
 public class Instruction {
 	String Opcode;
-	String Mnemonic;
+	public String Mnemonic;
 	String Length;
 	String Flags;
 	public String Instruction;
 	String Function;
 	static String Space = "                    ";
+
+	public Instruction() {
+	}
 
 	public Instruction(String Opcode, String Mnemonic, String Length, String Flags, String Function) {
 		this.Opcode = Opcode;
