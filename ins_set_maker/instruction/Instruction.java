@@ -1,13 +1,13 @@
 package ins_set_maker.instruction;
 
 public class Instruction {
-	String Opcode;
+	public String Opcode;
 	public String Mnemonic;
-	String Length;
-	String Flags;
+	public String Length;
+	public String Flags;
 	public String Instruction;
-	String Function;
-	static String Space = "                    ";
+	public String Function;
+	public static String Space = "                    ";
 
 	public Instruction() {
 	}
@@ -21,7 +21,7 @@ public class Instruction {
 		try {
 			makeInstruction();
 		} catch (Exception e) {
-			System.out.println(e.getMessage());
+			System.out.println("Error in making Instruction : " + e);
 		}
 	}
 

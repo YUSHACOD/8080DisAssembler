@@ -1,5 +1,5 @@
-import ins_set_maker.actualInstruction.ActualInstruction;
 import ins_set_maker.instruction.Instruction;
+import ins_set_maker.actualInstruction.ActualInstruction;
 import binaryReader.BinaryReader;
 import ins_set_maker.InsSetMaker;
 import java.util.ArrayList;
@@ -9,9 +9,10 @@ class Main {
 	public static void main(String[] args) {
 
 		ArrayList<Instruction> instructionList = InsSetMaker.getInstructionList();
-		BinaryReader br = new BinaryReader("./invaders.h");
+		BinaryReader br = new BinaryReader(args[0]);
 		ArrayList<Integer> byteList = br.getByteList();
 		Iterator<Integer> pc = byteList.iterator();
+		int counter = 0;
 
 		ArrayList<ActualInstruction> disAssembledInstructions = new ArrayList<>();
 
@@ -31,6 +32,15 @@ class Main {
 			} else {
 				disAssembledInstructions.add(new ActualInstruction(inst));
 			}
+		}
+
+		disAssembledInstructions.trimToSize();
+		for (ActualInstruction actualInstruction : disAssembledInstructions) {
+			String s = Integer.toHexString(counter);
+			String space = "      ";
+			System.out.println(s.concat(space.substring(0, space.length() - s.length())) 
+					+ " : " + actualInstruction.Instruction);
+			counter += Integer.parseInt(actualInstruction.Length);
 		}
 	}
 }

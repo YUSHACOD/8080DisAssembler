@@ -6,7 +6,6 @@ import java.io.*;
 
 public class InsSetMaker {
 	public static void printInstructionList(ArrayList<Instruction> ls) {
-		System.out.println("here is the instruction list....");
 		for (Instruction instruction : ls) {
 			System.out.println(instruction.Instruction);
 		}
@@ -17,7 +16,6 @@ public class InsSetMaker {
 		String line;
 		String[] data;
 
-		System.out.println("Creating the instruction list...");
 		try {
 			File file = new File("./ins_set_maker/source/insSetReadable.txt");
 			FileReader fr = new FileReader(file);
@@ -50,7 +48,6 @@ public class InsSetMaker {
 			System.out.println("Instruction List Not created..." + e);
 		}
 
-		System.out.println("Instruction List created.");
 		list.trimToSize();
 		return list;
 	}
